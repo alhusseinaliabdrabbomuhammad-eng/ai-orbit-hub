@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB20klasbbxLJXb5xvIhCF5sSEek2TWIis",
+ apiKey: "AIzaSyB20klasbbxLJXb5xvIhCF5sSEek2TWIis",
   authDomain: "chathusseinjust.firebaseapp.com",
   projectId: "chathusseinjust",
   storageBucket: "chathusseinjust.firebasestorage.app",
@@ -18,5 +18,3 @@ const auth = getAuth(app);
 
 // السطر ده هو "أهم سطر" اللي كان ناقص وموقف الموقع
 export { app, auth };
-
-
