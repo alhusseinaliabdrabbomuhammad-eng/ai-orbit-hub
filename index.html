@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="AI Orbit Hub - The ultimate luxury dashboard for AI enthusiasts.">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#0a0b1e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <title>AI Orbit Hub | Premium AI Command Center</title>
+
+    <!-- Preload Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets (Split as requested) -->
+    <link rel="stylesheet" href="./assets/css/tokens.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/layout.css">
+    <link rel="stylesheet" href="./assets/css/components.css">
+    <link rel="stylesheet" href="./assets/css/animations.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+
+    <!-- Favicon (SVG) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237c3aed' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Ccircle cx='12' cy='12' r='4'%3E%3C/circle%3E%3Cline x1='4.93' y1='4.93' x2='9.17' y2='9.17'%3E%3C/line%3E%3Cline x1='14.83' y1='14.83' x2='19.07' y2='19.07'%3E%3C/line%3E%3C/svg%3E">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="./manifest.json">
+</head>
+<body>
+
+    <!-- Ambient Background Elements -->
+    <div class="ambient-container" aria-hidden="true">
+        <div class="aurora aurora-1"></div>
+        <div class="aurora aurora-2"></div>
+        <div class="particles-overlay" id="particles-js"></div>
+    </div>
+
+    <div class="app-shell">
+        <!-- Top Navigation Bar -->
+        <header class="topbar glass-panel">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="title">AI ORBIT</span>
+                    <span class="badge">PRO</span>
+                </div>
+            </div>
+
+            <div class="search-container">
+                <div class="search-wrapper glass-panel">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input type="text" id="globalSearch" placeholder="Search AI tools (Ctrl + K)">
+    <div class="search-shortcut">⌘ K</div>
+</div>
+            </div>
+
+            <div class="header-actions">
+                <button id="themeToggle" class="icon-btn glass-panel" title="Toggle Theme">
+    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+</button>
+                
+                <div class="user-profile-wrapper">
+                    <button id="userProfileBtn" class="profile-btn glass-panel">
+                        <div class="avatar" id="userAvatar">?</div>
+                        <div class="user-info">
+                            <span class="user-name" id="userNameDisplay">Guest</span>
+                            <span class="user-status">Free Plan</span>
+                        </div>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div class="profile-dropdown glass-panel" id="profileDropdown">
+                        <div class="dropdown-header">
+                            <p id="userEmailDisplay">Not signed in</p>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <button id="loginBtn" class="dropdown-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+                            Login with Google
+                        </button>
+                        <button id="logoutBtn" class="dropdown-item danger" style="display: none;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            <!-- Sidebar Navigation -->
+            <aside class="sidebar glass-panel">
+                <nav class="nav-menu">
+                    <button class="nav-item active" data-tab="all">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                        <span>Discovery</span>
+                    </button>
+                    <button class="nav-item" data-tab="favorites">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        <span>Favorites</span>
+                    </button>
+                    <button class="nav-item" data-tab="recent">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <span>Recent</span>
+                    </button>
+                    <button class="nav-item" data-tab="notes">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                        <span>Quick Notes</span>
+                    </button>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <div class="stats-mini glass-panel">
+                        <div class="stat-item">
+                            <span class="stat-val" id="count-total">0</span>
+                            <span class="stat-label">Tools</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-val" id="count-favs">0</span>
+                            <span class="stat-label">Favs</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Dashboard Area -->
+            <main class="main-content">
+                <!-- Hero Section -->
+                <section class="hero-section">
+                    <div class="welcome-text">
+                        <h1 id="welcomeGreeting">Hello, Explorer</h1>
+                        <p>Access all your AI tools from one secure, premium command center.</p>
+                    </div>
+                </section>
+
+                <!-- Filters & Categories -->
+                <section class="filter-bar">
+                    <div class="categories-scroll" id="categoryTabs">
+                        <button class="cat-pill active" data-cat="all">All Tools</button>
+                        <!-- Dynamic Categories will be injected here -->
+                    </div>
+                </section>
+
+                <!-- Tools Grid -->
+                <section class="grid-container">
+                    <div class="grid-header">
+                        <h2 id="sectionTitle">Discovery</h2>
+                        <div class="grid-sort">
+                            <select id="sortTools" class="glass-panel">
+                                <option value="name">Name (A-Z)</option>
+                                <option value="popular">Most Popular</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="tools-grid" id="toolsGrid">
+                        <!-- Skeleton Loaders (Will be replaced by tools-data) -->
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                        <div class="skeleton-card"></div>
+                    </div>
+                </section>
+
+                <!-- Quick Notes Drawer (Hidden by default) -->
+                <section id="notesSection" class="notes-area glass-panel" style="display: none;">
+                    <div class="notes-header">
+                        <h3>Prompt Snippets & Notes</h3>
+                        <button id="saveNoteBtn" class="button-sm">Auto-saving...</button>
+                    </div>
+                    <textarea id="notesInput" placeholder="Paste your frequent prompts or ideas here..."></textarea>
+                </section>
+
+                                <!-- قسم التعليمات والتنبيه الجديد -->
+                <section class="info-panel glass-panel reveal-anim">
+                    <div class="panel-heading">
+                        <span class="section-kicker">Experience Hub</span>
+                        <h3>Connected Accounts & One-Click Access</h3>
+                    </div>
+                    
+                    <div class="pro-tip-box">
+                        <div class="tip-header">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                            </svg>
+                            <strong>نصيحة ذهبية: الدخول بضغطة واحدة</strong>
+                        </div>
+                        <p>لتسهيل الدخول لجميع المواقع المضمنة في موقعنا تلقائياً، نوصي باتباع الخطوات التالية:</p>
+                        <ul class="tip-list">
+                            <li>سجل دخولك في موقعنا (AI ORBIT) أولاً لحفظ إعداداتك.</li>
+                            <li>استخدم إضافة خارجية لإدارة الباسووردات مثل (Bitwarden) أو (Dashlane).</li>
+                            <li>كليك يمين على أيقونة الإضافة في المتصفح > اختار <strong>This can read and change site data</strong>.</li>
+                            <li>اختار <strong>On specific sites</strong> وأضف رابط موقعنا هذا.</li>
+                        </ul>
+                        <p class="tip-footer">بهذا الشكل، ستعمل الإضافة فقط داخل موقعك هذا لملء بيانات المواقع الأخرى فور فتحها بأمان تام وتوفيراً لوقتك.</p>
+                    </div>
+
+                    <div class="security-callout">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2.2 20.2 5.8v6.1c0 5.2-3.5 8.5-8.2 10-4.7-1.5-8.2-4.8-8.2-10V5.8L12 2.2z"></path>
+                        </svg>
+                        <div>
+                            <strong>Secure by Design</strong>
+                            <p>نحن لا نطلب أو نخزن كلمات مرورك للمواقع الخارجية أبداً؛ المتصفح هو من يتولى المهمة.</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Command Palette Modal -->
+    <div class="modal-overlay" id="commandModal">
+        <div class="command-palette glass-panel">
+            <input type="text" id="commandInput" placeholder="Type a tool name or command...">
+            <div class="command-results" id="commandResults"></div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="./assets/js/app.js"></script>
+    <script>
+    (function() {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const container = document.querySelector('.particles-overlay');
+        if (!container) return;
+        container.appendChild(canvas);
+        canvas.style.position = 'absolute';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        let w, h;
+        const particles = [];
+        const PARTICLE_COUNT = 70;
+
+        function resize() {
+            w = canvas.width = container.clientWidth;
+            h = canvas.height = container.clientHeight;
+        }
+        window.addEventListener('resize', resize);
+
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                radius: Math.random() * 2 + 1,
+                alpha: Math.random() * 0.5 + 0.2
+            });
+        }
+
+        function draw() {
+            resize();
+            ctx.clearRect(0, 0, w, h);
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0 || p.x > w) p.vx *= -1;
+                if (p.y < 0 || p.y > h) p.vy *= -1;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(124, 58, 237, ${p.alpha})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(draw);
+        }
+        draw();
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+/* 
+   AI ORBIT HUB - DESIGN TOKENS
+   Modern CSS Variables for Premium UI/UX
+*/
+
+:root {
+    /* --- Core Brand Colors --- */
+    --primary: #7c3aed;       /* Violet/Indigo */
+    --primary-glow: rgba(124, 58, 237, 0.5);
+    --secondary: #22d3ee;     /* Cyan/Tech */
+    --secondary-glow: rgba(34, 211, 238, 0.5);
+    --accent: #f472b6;        /* Pink/Highlight */
+    --danger: #ef4444;        /* Error/Red */
+    --success: #10b981;       /* Success/Green */
+
+    /* --- Spacing & Sizing --- */
+    --space-2xs: 0.25rem;
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 30px;
+    --radius-full: 9999px;
+
+    /* --- Typography --- */
+    --font-main: 'Plus Jakarta Sans', sans-serif;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-md: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 2.25rem;
+    --text-4xl: 3rem;
+
+    /* --- Transition Curves --- */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 500ms cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+    /* --- Shadows & Glows --- */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.2);
+    --inner-glow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+
+    --sidebar-width: 260px;
+--topbar-height: 72px;
+}
+
+/* --- DARK THEME (Default) --- */
+[data-theme="dark"] {
+    --bg-body: #070815;          /* Ultra dark navy */
+    --bg-app: #0a0b1e;           /* App shell background */
+    --text-main: #f8fafc;        /* Off white */
+    --text-muted: #94a3b8;       /* Muted slate */
+    
+    /* Glassmorphism Dark */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-blur: blur(12px);
+    --glass-surface: rgba(15, 17, 35, 0.7);
+    
+    --card-bg: rgba(255, 255, 255, 0.02);
+    --input-bg: rgba(0, 0, 0, 0.3);
+    
+
+}
+
+/* --- LIGHT THEME --- */
+[data-theme="light"] {
+    --bg-body: #f1f5f9;          /* Light slate gray */
+    --bg-app: #ffffff;
+    --text-main: #0f172a;        /* Deep navy text */
+    --text-muted: #64748b;
+    
+    /* Glassmorphism Light */
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(0, 0, 0, 0.05);
+    --glass-blur: blur(10px);
+    --glass-surface: rgba(255, 255, 255, 0.8);
+    
+    --card-bg: #ffffff;
+    --input-bg: #f8fafc;
+}
+
+/* --- Z-Index Management --- */
+
+:root {
+    --z-behind: -1;
+    --z-base: 1;
+    --z-dock: 10;
+    --z-sticky: 100;
+    --z-overlay: 1000;
+    --z-modal: 1100;
+    --z-toast: 1200;
+    
+    /* Layout Dimensions */
+    --sidebar-width: 260px;
+    --topbar-height: 72px;
+}
