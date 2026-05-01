@@ -1,15 +1,7 @@
 
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-// Import the functions you need from the SDKs you need
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyB20klasbbxLJXb5xvIhCF5sSEek2TWIis",
   authDomain: "chathusseinjust.firebaseapp.com",
@@ -20,6 +12,11 @@ const firebaseConfig = {
   measurementId: "G-T5TEPZRBH5"
 };
 
-// Initialize Firebase
+// تشغيل الفايربيز
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const auth = getAuth(app);
+
+// السطر ده هو "أهم سطر" اللي كان ناقص وموقف الموقع
+export { app, auth };
+
+
